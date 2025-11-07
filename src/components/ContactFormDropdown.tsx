@@ -78,7 +78,7 @@ const contactFormSteps = [
   },
 ]
 
-const messageSchema: yup.SchemaOf<ContactFormData> = yup
+const messageSchema = yup
   .object({
     websiteUrl: yup
       .string()
@@ -120,11 +120,13 @@ const messageSchema: yup.SchemaOf<ContactFormData> = yup
   })
   .required()
 
+type ContactFormSchema = yup.InferType<typeof messageSchema>
+
 const ContactFormDropdown = () => {
   const [show, setShow] = useState(false)
   const [currentStep, setCurrentStep] = useState(0)
 
-  const { handleSubmit, control, trigger, watch, formState: { errors } } = useForm<ContactFormData>({
+  const { handleSubmit, control, trigger, watch, formState: { errors } } = useForm<ContactFormSchema>({
     resolver: yupResolver(messageSchema),
     mode: 'onChange',
     defaultValues: {

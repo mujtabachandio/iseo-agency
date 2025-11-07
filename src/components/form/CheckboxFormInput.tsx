@@ -37,4 +37,31 @@ const CheckboxFormInput = <T extends FieldValues>({
         return (
           <div className="mb-3">
             {label && <label className="form-label fw-medium text-dark mb-3 d-block">{label}</label>}
-            <div className={`
+            <div className="row g-3">
+              {options.map((option, idx) => (
+                <div key={idx} className={`col-${12 / columns}`}>
+                  <div className="form-check p-2 rounded" style={{ backgroundColor: isChecked(option.value) ? 'rgba(0, 188, 212, 0.1)' : 'transparent', transition: 'background-color 0.2s' }}>
+                    <input
+                      className="form-check-input"
+                      type="checkbox"
+                      value={option.value}
+                      checked={isChecked(option.value)}
+                      onChange={(e) => handleChange(option.value, e.target.checked)}
+                      id={`checkbox-${option.value}`}
+                    />
+                    <label className="form-check-label" htmlFor={`checkbox-${option.value}`}>
+                      {option.label}
+                    </label>
+                  </div>
+                </div>
+              ))}
+            </div>
+            {error && <div className="text-danger">{error.message}</div>}
+          </div>
+        )
+      }}
+    />
+  )
+}
+
+export default CheckboxFormInput

@@ -25,7 +25,7 @@ const Services = () => {
             <span className="badge badge-lg rounded fw-normal fs-13 text-uppercase">Services</span>
             <h2 className="fs-2 fw-medium lh-1 text-dark my-3 position-relative z-i-2">Our SEO Agency Services</h2>
             <div className="bg-text">
-              <h1 className="fw-bold p-0">Services</h1>
+              {/* <h1 className="fw-bold p-0">Services</h1> */}
             </div>
             <p className="text-gray-700 fs-18 fs-lg mb-4 mb-md-5 lh-lg">
               We combine technical expertise with creative content strategy to offer a full service SEO solution. Our focus is always on your ROI and long-term search authority.

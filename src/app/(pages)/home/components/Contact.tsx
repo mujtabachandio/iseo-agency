@@ -27,42 +27,42 @@ const Contact = () => {
       <Container>
         <Row>
           <Col xs={12}>
-            <Card className="bg-white" style={{ background: `url(${testipetImg})`, backgroundRepeat: 'no-repeat', backgroundSize: '15%', backgroundPosition: 'right bottom' }}>
+            <Card className="bg-white contact-card-bg">
               <CardBody>
                 <Row>
-                  <Col md={8}>
+                  <Col xs={12} md={8} className="order-2 order-md-1">
                     <h2 className="fs-2 fw-normal lh-1 text-dark mb-3">Get in touch!</h2>
                     <p className="text-gray-700 fs-18 fs-lg mb-4 mb-md-5 ">Ready to dominate search results? Let's discuss how iSeoAgency can help your business achieve sustainable, measurable organic growth. Contact us today for a free consultation.</p>
                     <form method="post" name="myForm" onSubmit={handleSubmit(() => { })}>
                       <span id="error-msg" />
                       <Row>
-                        <Col md={6} className="mb-3">
+                        <Col xs={12} md={6} className="mb-3">
                           <TextFormInput control={control} name="name" placeholder="Your name" label="Name" />
                         </Col>
-                        <Col md={6} className="mb-3">
+                        <Col xs={12} md={6} className="mb-3">
                           <TextFormInput control={control} name="email" placeholder="Your email" label="Email" />
                         </Col>
-                        <Col md={6} className="mb-3">
+                        <Col xs={12} md={6} className="mb-3">
                           <TextFormInput control={control} name="subject" placeholder="Your subject" label="Subject" />
                         </Col>
-                        <Col md={6} className="mb-3">
+                        <Col xs={12} md={6} className="mb-3">
                           <TextFormInput control={control} name="contact" placeholder="Your contact" label="Contact" />
                         </Col>
                         <Col xs={12} className="mb-3">
                           <TextAreaFormInput control={control} name="message" placeholder="Your message" label="Message" />
                         </Col>
                         <Col xs={12}>
-                          <Button type="submit" id="submit" className="btn btn-primary mt-2">
+                          <Button type="submit" id="submit" className="btn btn-primary mt-2 w-100 w-md-auto">
                             Send message
                           </Button>
                         </Col>
                       </Row>
                     </form>
                   </Col>
-                  <Col md={4}>
-                    <img src={contactImg} alt='contactImg' height={200} className=" mx-auto d-block mb-5" />
-                    <div className="d-flex">
-                      <div className="bg-light d-flex justify-content-center align-items-center thumb-lg  rounded">
+                  <Col xs={12} md={4} className="order-1 order-md-2 mb-4 mb-md-0">
+                    <img src={contactImg} alt='contactImg' height={200} className="mx-auto d-block mb-5 img-fluid" style={{ maxHeight: '200px' }} />
+                    <div className="d-flex mb-3">
+                      <div className="bg-light d-flex justify-content-center align-items-center thumb-lg rounded">
                         <IconifyIcon icon='tabler:phone' className="fs-22" />
                       </div>
                       <div className="align-self-center ms-3">
@@ -72,7 +72,7 @@ const Contact = () => {
                     </div>
                     <hr className="hr-dashed my-3" />
                     <div className="d-flex">
-                      <div className="bg-light d-flex justify-content-center align-items-center thumb-lg  rounded">
+                      <div className="bg-light d-flex justify-content-center align-items-center thumb-lg rounded">
                         <IconifyIcon icon='tabler:mail' className="fs-22" />
                       </div>
                       <div className="align-self-center ms-3">

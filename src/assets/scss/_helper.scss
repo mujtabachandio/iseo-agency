@@ -92,6 +92,33 @@ $value in $theme-colors {
     font-size: 50px;
 }
 
+// Responsive font sizes
+@media (max-width: 991px) {
+    .fs-lg {
+        font-size: 18px !important;
+    }
+}
+
+@media (max-width: 767px) {
+    .fs-lg {
+        font-size: 16px !important;
+    }
+    
+    .fs-md-5 {
+        font-size: 1.25rem !important;
+    }
+}
+
+@media (max-width: 575px) {
+    .fs-lg {
+        font-size: 15px !important;
+    }
+    
+    .fs-md-5 {
+        font-size: 1.1rem !important;
+    }
+}
+
 // font-weight
 .fw-light{
     font-weight: 300;
@@ -168,6 +195,17 @@ $value in $theme-colors {
     border-right: 1px solid $gray-100;
 }
 
+.border-e-dashed {
+    border-right: 1px dashed $border;
+    
+    @media (max-width: 991px) {
+        border-right: none;
+        border-bottom: 1px dashed $border;
+        padding-bottom: 2rem;
+        margin-bottom: 2rem;
+    }
+}
+
 // shadow
 .shadow {
     box-shadow: 0px 4px 20px rgba($shadow-color, 0.2) !important;
@@ -181,6 +219,18 @@ $value in $theme-colors {
 .section {
     padding: 100px 0px 100px;
     position: relative;
+    
+    @media (max-width: 991px) {
+        padding: 80px 0px 80px;
+    }
+    
+    @media (max-width: 767px) {
+        padding: 60px 0px 60px;
+    }
+    
+    @media (max-width: 575px) {
+        padding: 40px 0px 40px;
+    }
 }
 
 

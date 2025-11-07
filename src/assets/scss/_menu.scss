@@ -155,6 +155,8 @@
             .nav-item {
                 .nav-link {
                     color: $gray-500;
+                    padding: 8px 0px;
+                    font-size: 15px;
                 }
             }
         }
@@ -164,6 +166,11 @@
             }
             .logo-dark {
                 display: inline-block;
+            }
+            
+            img {
+                height: 40px !important;
+                max-height: 40px !important;
             }
         }
         .navbar-toggler {
@@ -176,6 +183,25 @@
             }
         }
     }    
+}
+
+@media (max-width: 575px) {
+    .navbar {
+        .navbar-brand {
+            img {
+                height: 36px !important;
+                max-height: 36px !important;
+            }
+        }
+        
+        .navbar-nav {
+            .nav-item {
+                .nav-link {
+                    font-size: 14px;
+                }
+            }
+        }
+    }
 }
 
 .navbar {

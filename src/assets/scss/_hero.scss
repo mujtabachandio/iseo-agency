@@ -14,12 +14,33 @@
     &.main-bg {
         background-color: $hero-main-bg;
     }
+    
+    @media (min-width: 992px) {
+        min-height: 80vh;
+        display: flex;
+        align-items: center;
+    }
 
     .hero-title {
         font-size: 54px;
         line-height: 70px;
         font-weight: 700;
         color: $dark;
+        
+        @media (max-width: 991px) {
+            font-size: 42px;
+            line-height: 56px;
+        }
+        
+        @media (max-width: 767px) {
+            font-size: 32px;
+            line-height: 44px;
+        }
+        
+        @media (max-width: 575px) {
+            font-size: 28px;
+            line-height: 38px;
+        }
     }
 }
 
@@ -40,6 +61,21 @@
         right: 0;
         top: 0;
     }
+    
+    @media (max-width: 767px) {
+        width: 140px;
+        font-size: 15px;
+    }
+    
+    @media (max-width: 575px) {
+        width: 100%;
+        float: none;
+        margin-bottom: 5px;
+        
+        &:after {
+            content: "";
+        }
+    }
 }
 
 .personal-detail-info {
@@ -48,6 +84,15 @@
     font-weight: 500;
     font-size: 16px;
     color: $gray-600;
+    
+    @media (max-width: 767px) {
+        padding-left: 150px;
+        font-size: 15px;
+    }
+    
+    @media (max-width: 575px) {
+        padding-left: 0;
+    }
 }
 
 
@@ -178,6 +223,16 @@
         &:hover {
             opacity: .9;
         }
+        
+        @media (max-width: 991px) {
+            width: 35px;
+            height: 35px;
+        }
+        
+        @media (max-width: 767px) {
+            width: 30px;
+            height: 30px;
+        }
     }
 
     .carousel-control-prev {
@@ -186,6 +241,18 @@
 
         .carousel-control-prev-icon {
             background-image: none;
+        }
+        
+        @media (max-width: 991px) {
+            left: -30px;
+        }
+        
+        @media (max-width: 767px) {
+            left: -20px;
+        }
+        
+        @media (max-width: 575px) {
+            left: 10px;
         }
     }
 
@@ -196,6 +263,18 @@
 
         .carousel-control-next-icon {
             background-image: none;
+        }
+        
+        @media (max-width: 991px) {
+            right: -30px;
+        }
+        
+        @media (max-width: 767px) {
+            right: -20px;
+        }
+        
+        @media (max-width: 575px) {
+            right: 10px;
         }
     }
 }
@@ -219,6 +298,16 @@
         border-radius: 8px;
         background-color: $white;
         color: $gray-700;
+        
+        @media (max-width: 767px) {
+            padding: 12px 100px 12px 15px;
+            font-size: 15px;
+        }
+        
+        @media (max-width: 575px) {
+            padding: 12px 80px 12px 15px;
+            font-size: 14px;
+        }
     }
 
     button {
@@ -235,6 +324,18 @@
         &:hover {
             transition: none;
             transform: none;
+        }
+        
+        @media (max-width: 767px) {
+            font-size: 14px;
+            padding: 10px 20px;
+            top: 2px;
+            right: 2px;
+        }
+        
+        @media (max-width: 575px) {
+            font-size: 13px;
+            padding: 8px 15px;
         }
     }
 }

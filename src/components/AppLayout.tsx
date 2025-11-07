@@ -16,7 +16,7 @@ const AppLayout = ({
       <footer className="footer">
         <Container>
           <Row>
-            <Col lg={5} className="border-e-dashed">
+            <Col xs={12} lg={5} className="border-e-dashed mb-4 mb-lg-0">
               <Link to="/">
                 <img src={'/logo-removebg-preview.png'} alt='iSeoAgency Logo' height={48} style={{ height: '48px', maxHeight: '48px' }} />
               </Link>
@@ -37,26 +37,26 @@ const AppLayout = ({
                 </li>
               </ul>
             </Col>
-            <Col lg={6} className="offset-lg-1">
+            <Col xs={12} lg={6} className="offset-lg-1">
               <Row>
-                <Col md={4}>
-                  <h6 className="text-footer mb-4 mt-sm-0 mt-5">Company</h6>
+                <Col xs={6} md={4} className="mb-4 mb-md-0">
+                  <h6 className="text-footer mb-4 mt-sm-0 mt-5 mt-lg-0">Company</h6>
                   <ul className="list-unstyled footer-list">
                     <li><Link to="/">Home</Link></li>
                     <li><Link to="/about">About</Link></li>
                     <li><Link to="/services">Services</Link></li>
                   </ul>
                 </Col>
-                <Col md={4}>
-                  <h6 className="text-footer mb-4 mt-sm-0 mt-4">Services</h6>
+                <Col xs={6} md={4} className="mb-4 mb-md-0">
+                  <h6 className="text-footer mb-4 mt-sm-0 mt-4 mt-lg-0">Services</h6>
                   <ul className="list-unstyled footer-list">
                     <li><Link to="/services">SEO Services</Link></li>
                     <li><Link to="/services">PPC Campaigns</Link></li>
                     <li><Link to="/services">Content Marketing</Link></li>
                   </ul>
                 </Col>
-                <Col md={4}>
-                  <h6 className="text-footer mb-4 mt-sm-0 mt-4">More info</h6>
+                <Col xs={12} md={4} className="mb-4 mb-md-0">
+                  <h6 className="text-footer mb-4 mt-sm-0 mt-4 mt-lg-0">More info</h6>
                   <ul className="list-unstyled footer-list">
                     <li><Link to="/blogs">Blogs</Link></li>
                     <li><Link to="/contact">Contact</Link></li>
@@ -71,10 +71,10 @@ const AppLayout = ({
       <div className="footer-alt">
         <Container>
           <Row>
-            <Col sm={6}>
+            <Col xs={12} sm={6} className="mb-2 mb-sm-0">
               <p> © {currentYear} iSeoAgency. All rights reserved. Created with <IconifyIcon icon="la:heart-solid" className="text-danger" /> by iSeoAgency</p>
             </Col>
-            <Col sm={6} className="text-sm-end">
+            <Col xs={12} sm={6} className="text-sm-end text-start">
               <ul className="list-inline mb-0">
                 <li className="list-inline-item"><a href="#">- Terms &amp; condition<sup className="text-danger">*</sup></a></li>
               </ul>

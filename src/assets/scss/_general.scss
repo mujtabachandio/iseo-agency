@@ -9,6 +9,14 @@ body {
     background: $body-bg;
     line-height: 1.6;
     font-size: 17px;
+    
+    @media (max-width: 767px) {
+        font-size: 16px;
+    }
+    
+    @media (max-width: 575px) {
+        font-size: 15px;
+    }
 }
 
 html {
@@ -62,6 +70,18 @@ h6 {
         width: 100%;
         height: auto;
         transform-origin: top center;
+        
+        @media (max-width: 991px) {
+            transform: scale(1.5);
+        }
+        
+        @media (max-width: 767px) {
+            transform: scale(1.2);
+        }
+        
+        @media (max-width: 575px) {
+            transform: scale(1);
+        }
     }
 }
 
@@ -195,6 +215,18 @@ h6 {
     h1 {
         font-size: 70px;
         color: color.scale($light, $lightness: -2%);
+        
+        @media (max-width: 991px) {
+            font-size: 50px;
+        }
+        
+        @media (max-width: 767px) {
+            font-size: 40px;
+        }
+        
+        @media (max-width: 575px) {
+            font-size: 32px;
+        }
     }
 }
 
@@ -207,6 +239,14 @@ h6 {
     letter-spacing: 0.02em;
     text-transform: uppercase;
     perspective: 500px;
+    
+    @media (max-width: 767px) {
+        font-size: calc(2px + 2vw);
+    }
+    
+    @media (max-width: 575px) {
+        font-size: calc(1.5px + 1.5vw);
+    }
 
     &::before,
     &::after {

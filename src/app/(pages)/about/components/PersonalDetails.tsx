@@ -26,27 +26,46 @@ const PersonalDetails = () => {
             {/* Personal details and social icons removed as per client request */}
           </Col>
           <Col xs={12} className="mt-5">
-            <div className="d-flex flex-wrap justify-content-center  mt-4 mt-md-5">
+            <Row className="g-3 g-md-4">
               {
                 personalData.map((item, idx) => (
-                  <div key={idx} className="mx-3 ms-sm-0 ms-sm-0 mb-3 card-bg rounded p-3 pe-4 p-md-3 pe-md-5 shadow-sm">
-                    <div className="d-flex align-items-center">
-                      <div className="thumb-md d-flex flex-wrap justify-content-center align-items-center">
-                        {item.image.endsWith('.mp4') ? (
-                          <video src={item.image} height={60} width={60} autoPlay loop muted playsInline poster={'/doc/logo.png'} style={{ height: '60px', width: '60px', objectFit: 'contain' }} />
-                        ) : (
-                          <img src={item.image} alt='lag' height={60} width={60} onError={(e) => { (e.currentTarget as HTMLImageElement).src = 'https://images.unsplash.com/photo-1529336953121-a0fc1f02177d?auto=format&fit=crop&w=80&q=60' }} style={{ height: '60px', width: '60px', objectFit: 'contain' }} />
-                        )}
-                      </div>
-                      <div className="ms-3">
-                        <h6 className="mb-0 fw-medium text-gray-700">{item.name}</h6>
-                        <p className="text-muted mb-0 fs-12">{item.experience} Experience</p>
+                  <Col xs={6} sm={6} md={6} lg={6} key={idx}>
+                    <div className="card-bg rounded p-3 p-md-3 p-lg-4 shadow-sm h-100 experience-card">
+                      <div className="d-flex align-items-center">
+                        <div className="thumb-md d-flex flex-shrink-0 justify-content-center align-items-center experience-icon">
+                          {item.image.endsWith('.mp4') ? (
+                            <video 
+                              src={item.image} 
+                              height={60} 
+                              width={60} 
+                              autoPlay 
+                              loop 
+                              muted 
+                              playsInline 
+                              poster={'/doc/logo.png'} 
+                              style={{ height: '60px', width: '60px', objectFit: 'contain' }} 
+                            />
+                          ) : (
+                            <img 
+                              src={item.image} 
+                              alt={item.name} 
+                              height={60} 
+                              width={60} 
+                              onError={(e) => { (e.currentTarget as HTMLImageElement).src = 'https://images.unsplash.com/photo-1529336953121-a0fc1f02177d?auto=format&fit=crop&w=80&q=60' }} 
+                              style={{ height: '60px', width: '60px', objectFit: 'contain' }} 
+                            />
+                          )}
+                        </div>
+                        <div className="ms-3 flex-grow-1">
+                          <h6 className="mb-1 fw-medium text-gray-700 experience-title">{item.name}</h6>
+                          <p className="text-muted mb-0 fs-12 experience-text">{item.experience} Experience</p>
+                        </div>
                       </div>
                     </div>
-                  </div>
+                  </Col>
                 ))
               }
-            </div>
+            </Row>
           </Col>
         </Row>
       </Container>

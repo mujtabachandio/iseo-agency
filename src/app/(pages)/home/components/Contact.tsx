@@ -1,6 +1,5 @@
 
 import contactImg from '@/assets/images/personal/contact.svg'
-import testipetImg from '@/assets/images/personal/testi-pet.png'
 
 import TextAreaFormInput from '@/components/form/TextAreaFormInput'
 import TextFormInput from '@/components/form/TextFormInput'

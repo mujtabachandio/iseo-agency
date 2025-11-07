@@ -78,19 +78,51 @@ const contactFormSteps = [
   },
 ]
 
+const messageSchema: yup.SchemaOf<ContactFormData> = yup
+  .object({
+    websiteUrl: yup
+      .string()
+      .required('Please enter your website URL')
+      .matches(
+        /^(https?:\/\/)?([\da-z\.-]+)\.([a-z\.]{2,6})([\/\w \.-]*)*\/?$/,
+        'Please enter a valid website URL'
+      ),
+    marketingChallenges: yup
+      .array()
+      .of(yup.string().required())
+      .min(1, 'Please select at least one challenge')
+      .defined(),
+    otherChallenge: yup
+      .string()
+      .when('marketingChallenges', {
+        is: (challenges: string[]) => Array.isArray(challenges) && challenges.includes('other'),
+        then: (schema) => schema.required('Please specify your challenge'),
+        otherwise: (schema) => schema.optional(),
+      }),
+    services: yup
+      .array()
+      .of(yup.string().required())
+      .min(1, 'Please select at least one service')
+      .defined(),
+    name: yup
+      .string()
+      .required('Please enter your name')
+      .min(2, 'Name must be at least 2 characters')
+      .matches(/^[a-zA-Z\s]+$/, 'Name should only contain letters'),
+    email: yup
+      .string()
+      .email('Please enter a valid email address')
+      .required('Please enter your email'),
+    whatsapp: yup
+      .string()
+      .required('Please enter your WhatsApp number')
+      .matches(/^[\+]?[(]?[0-9]{1,4}[)]?[-\s\.]?[(]?[0-9]{1,4}[)]?[-\s\.]?[0-9]{1,9}$/, 'Please enter a valid phone number'),
+  })
+  .required()
+
 const ContactFormDropdown = () => {
   const [show, setShow] = useState(false)
   const [currentStep, setCurrentStep] = useState(0)
-
-  const messageSchema = yup.object({
-    websiteUrl: yup.string().required('Please enter your website URL'),
-    marketingChallenges: yup.array().min(1, 'Please select at least one challenge'),
-    otherChallenge: yup.string(),
-    services: yup.array().min(1, 'Please select at least one service'),
-    name: yup.string().required('Please enter your name'),
-    email: yup.string().email().required('Please enter your email'),
-    whatsapp: yup.string().required('Please enter your WhatsApp number'),
-  })
 
   const { handleSubmit, control, trigger, watch, formState: { errors } } = useForm<ContactFormData>({
     resolver: yupResolver(messageSchema),
@@ -122,6 +154,11 @@ const ContactFormDropdown = () => {
     if (currentField === 'marketingChallenges' || currentField === 'services') {
       const value = watch(currentField)
       isValid = Array.isArray(value) && value.length > 0
+      
+      if (currentField === 'marketingChallenges' && value?.includes('other')) {
+        const otherValid = await trigger('otherChallenge')
+        isValid = isValid && otherValid
+      }
     } else {
       isValid = await trigger(currentField)
     }
